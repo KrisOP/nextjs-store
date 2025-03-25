@@ -1,6 +1,7 @@
 interface CategoryProps {
   params: {
-    category: string;
+    categories: string[];
+    searchParams?: string;
   };
 }
 export default async function Category(props: CategoryProps) {
@@ -9,8 +10,8 @@ export default async function Category(props: CategoryProps) {
     // Aquí podrías tener lógica para obtener los parámetros de manera asincrónica
     return props.params;
   };
-  const {category} = await getParams();
-  console.log(category);
+  const { categories } = await getParams();
+  console.log(categories);
   //console.log(props.params.category);
-  return <h1> Ruta - Categoria dinamica xD {category}</h1>;
+  return <h1> Ruta - Categoria dinamica xD {categories}</h1>;
 }
